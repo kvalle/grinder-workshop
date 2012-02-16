@@ -2,21 +2,20 @@ from net.grinder.script.Grinder import grinder
 from net.grinder.script import Test
 from net.grinder.plugin.http import HTTPRequest
 
-def request_factory(url):
-    return lambda: HTTPRequest().GET(url)
+url_file_path = grinder.getProperties().getProperty('task2.urls')
 
 class TestRunner:
     
     def __init__(self):
-        file_path = grinder.getProperties().getProperty('task2.urls')
-        url_file = open(file_path)
-        urls = [url.strip() for url in url_file]
-        url_file.close()
+        url_file = open(url_file_path)
         self.tests = []
-        for num, url in enumerate(urls):
-            test = Test(num, url).wrap(request_factory(url))
-            self.tests.append(test)
+        for num, url in enumerate(url_file):
+            url = url.strip()
+            test = Test(num, url)
+            request = test.wrap(HTTPRequest())
+            self.tests.append((request, url))
+        url_file.close()
     
     def __call__(self):
-        for test in self.tests:
-            test()
+        for request, url in self.tests:
+            request.GET(url)
