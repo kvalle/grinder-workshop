@@ -12,11 +12,15 @@ For å hjelpe deg i gang har vi laget litt kode du kan ta utgangspunkt i.
 Vi har laget en ferdig properties-fil `tests/1.properties` som inneholder testkonfigurasjonen.
 Denne peker på testscriptet `tests/scripts/test1.py` som du må gjøre ferdig selv.
 
-For å kjøre testen kan du bruke `startAgent` scriptet som følger
+For å kjøre testen kan du bruke `startAgent` scriptet på følgende måte:
 
     ./startAgent.sh tests/1
    
-TODO: mer om hva som må gjøres her.
+Det er tre ting som må gjøres:
+
+1. Opprett et `Test` med nummer og beskrivelse.
+2. Wrap en `HTTPRequest` med testen.
+3. Gjør en GET hver gang `__call__`-metoden blir kalt.
 
 ## Oppgave 2 - Testing av mange URLer
 

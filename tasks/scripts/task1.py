@@ -5,7 +5,7 @@ from net.grinder.plugin.http import HTTPRequest
 class TestRunner:
     
     def __init__(self):
-        # todo
+        pass
     
     def __call__(self):
-        # todo
+        pass
