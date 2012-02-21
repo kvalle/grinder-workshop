@@ -10,9 +10,9 @@ Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og 
 Det du trenger å gjøre er:
 
 - Installer [git](http://git-scm.com/download)
-- Sjekk ut dette repositoriet:
+- Sjekk ut dette repositoriet:  
   `git clone git://github.com/kvalle/grinder-workshop.git`
-- Sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
+- Sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):  
   `./startAgent.sh demo/demo`
   
 (Hvis du ikke ønsker å installere `git` går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).)
