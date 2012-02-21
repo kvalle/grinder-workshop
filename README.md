@@ -15,6 +15,8 @@ Det du trenger å gjøre er:
 - Sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
   `./startAgent.sh demo/demo`
   
+(Hvis du ikke ønsker å installere `git` går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).)
+  
 Når du kjører eksempelet vil Grinder skrive ut en del informasjon.
 Denne er ikke så nøye enda, det viktigste er å se at omtrent det følgende blir skrevet ut til sist:
 
@@ -110,3 +112,5 @@ TODO: mer om oppgaven.
 
 
 ## Oppgave 5 (++) - Testing av REST-API
+
+TODO: Espen
