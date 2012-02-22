@@ -9,18 +9,38 @@ Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og 
 
 Det du trenger å gjøre er:
 
-- Installer [git](http://git-scm.com/download)
+- Installér [git](http://git-scm.com/download)
+- Sørg for å ha Java installert
 - Sjekk ut dette repositoriet:  
   `git clone git://github.com/kvalle/grinder-workshop.git`
 - Sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):  
   `./startAgent.sh demo/demo`
   
-(Hvis du ikke ønsker å installere `git` går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).)
+*Hvis du ikke ønsker å installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
+*Vi anbefaler likevel at du bruker git, siden det da blir enklere for oss å oppdatere kode/oppgaver nært opptil og under workshoppen hvis det skulle tregs.*
   
 Når du kjører eksempelet vil Grinder skrive ut en del informasjon.
 Denne er ikke så nøye enda, det viktigste er å se at omtrent det følgende blir skrevet ut til sist:
 
-        TODO: lag egnet script og lim inn forventet output her
+    TODO: lag egnet script og lim inn forventet output her
+
+# Ressurser
+
+Vi har forsøkt å forklare hva som skal gjøres i oppgavene så godt vi kan, men det dukker naturligvis alltid opp spørsmål.
+I tilfelle vi ikke umiddelbart er tilgjengelige for å svare på disse, oppsummerer vi de viktigste stedene å finne informasjon under.
+
+## Grinder
+
+For informasjon om Grinder er [hjemmesiden](http://grinder.sourceforge.net/) et greit sted å starte.
+Det nyttigste stedet å starte for å lage test-script er [script-galleriet](http://grinder.sourceforge.net/g3/script-gallery.html) som inneholder en rekke gode eksempler.
+Det finnes også et [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) med forklaringer på hvordan de forskjellige klassene og metodene fungerer.
+
+## Python
+
+Det første stedet å sjekke om du har spørsmål til selve språket er [Pythons offisielle dokumentasjonen](http://docs.python.org/index.html).
+Her ligger veldig mye og god informasjon.
+En god måte å finne frem til denne er via [søkesiden](http://docs.python.org/search.html).
+For eventuelle spørsmål som går på samspillet mellom Python og Java er [hjemmesiden til Jython](http://www.jython.org/docs/index.html) stedet å starte.
 
 # Oppgaver
 
@@ -101,15 +121,15 @@ Hvis oppgaven blir enkel kan du utvide med å lage respons-sjekker spesielt tilp
 Dette kan for eksempel løses ved å legge mer informasjon sammen med URL-ene i filen som leses, og bruke denne til å avgjøre hva som skal testes for hver URL.
 
 
-## Oppgave 4 - Bruk av HTTPProxy for å lage tester
+## Oppgave 4 - Bruk av TCPProxy for å lage tester
+
 
 Noen ganger ønsker man å teste en typisk brukerøkt.
-Man kan da bruke Grinders `HTTPProxy` til å følge med på hva man gjør i nettleseren, og automatisk generere utkast til et script på bakgrunn av dette.
+Man kan da bruke [Grinders TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.html) til å følge med på hva man gjør i nettleseren, og automatisk generere utkast til et script på bakgrunn av dette.
 
-I denne oppgaven skal du generere et testscript med `HTTPProxy`.
+I denne oppgaven skal du generere et testscript med `TCPProxy`.
 
 TODO: mer om oppgaven.
-
 
 ## Oppgave 5 (++) - Testing av REST-API
 
