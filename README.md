@@ -77,7 +77,7 @@ Det er tre ting som må gjøres:
 
 ## Oppgave 2 - Testing av mange URLer om gangen
 
-Akkurat som i oppgave 1 har vi gjort klart properties-fila `tests/1.properties` og et skall for scriptet i `tests/scripts/task2.py`.
+Akkurat som i oppgave 1 har vi gjort klart properties-fila `tests/2.properties` og et skall for scriptet i `tests/scripts/task2.py`.
 
 Filen `tests/scripts/urls.txt` inneholder en rekke URL-er.
 Oppgaven er ikke mye vanskeligere enn den forige, og går rett og slett ut på å lage et script som leser denne filen, og tester samtlige URL-er.
