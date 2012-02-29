@@ -9,20 +9,35 @@ Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og 
 
 Det du trenger å gjøre er:
 
-- Installér [git](http://git-scm.com/download)
-- Sørg for å ha Java installert
-- Sjekk ut dette repositoriet:  
-  `git clone git://github.com/kvalle/grinder-workshop.git`
-- Sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):  
-  `./startAgent.sh demo/demo`
-  
-*Hvis du ikke ønsker å installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
-*Vi anbefaler likevel at du bruker git, siden det da blir enklere for oss å oppdatere kode/oppgaver nært opptil og under workshoppen hvis det skulle tregs.*
-  
-Når du kjører eksempelet vil Grinder skrive ut en del informasjon.
-Denne er ikke så nøye enda, det viktigste er å se at omtrent det følgende blir skrevet ut til sist:
+- Hvis nødvendig, installer [git](http://git-scm.com/download).
+- Hvis nødvendig, installer [Java](http://java.com/en/download).
+- Sjekk ut dette repositoriet.
 
-    TODO: lag egnet script og lim inn forventet output her
+  `git clone git://github.com/kvalle/grinder-workshop.git`
+
+Når du er ferdig med å installere kan du sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
+
+    ./startAgent.sh example/example.properties
+  
+Når du kjører dette eksempelet vil Grinder skrive ut en del informasjon.
+Først kommer det litt informasjon om hva som skjer under oppstarten, og muligens noen linjer med noe slikt som `*sys-package-mgr*: processing new jar`.
+Ignorer dette for nå.
+
+Deretter skriver selve eksempel-testene ut litt info mens de kjøres.
+Dette bør se ut omtrent som følgende:
+
+    > output from 0 from thread 0
+    > output from 0 from thread 1
+    > output from 1 from thread 1
+    > output from 2 from thread 1
+    ... etc
+
+Når testen har kjørt ferdig kan du i tillegg sjekke at alt har gått riktig for seg ved å titte på resultatet som skal ha blitt lagret i den nyopprettede mappen `grinder-workshop/log`.
+Her skal det ligge to filer med navn som `out_xyz-0.log` og `data_xyz-0.log`, der `xyz` er navnet på din datamaskin.
+I `out`-filen finner du et sammendrag av testens resultater, og `data`-filen inneholder alle detaljene i et komma-separert format.
+Det skal *ikke* være laget noen filer med navn som `error_xyz-0.log`.
+
+*Hvis du av en eller annen grunn ikke kan installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
 
 # Ressurser
 
