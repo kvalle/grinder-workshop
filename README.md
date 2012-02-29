@@ -26,16 +26,17 @@ Ignorer dette for nå.
 Deretter skriver selve eksempel-testene ut litt info mens de kjøres.
 Dette bør se ut omtrent som følgende:
 
-    > output from 0 from thread 0
-    > output from 0 from thread 1
-    > output from 1 from thread 1
-    > output from 2 from thread 1
-    ... etc
+    > output #0 from worker thread 1
+    > output #0 from worker thread 0
+    > output #1 from worker thread 0
+    > output #1 from worker thread 1
+    > output #2 from worker thread 0
+    ...
 
 Når testen har kjørt ferdig kan du i tillegg sjekke at alt har gått riktig for seg ved å titte på resultatet som skal ha blitt lagret i den nyopprettede mappen `grinder-workshop/log`.
 Her skal det ligge to filer med navn som `out_xyz-0.log` og `data_xyz-0.log`, der `xyz` er navnet på din datamaskin.
 I `out`-filen finner du et sammendrag av testens resultater, og `data`-filen inneholder alle detaljene i et komma-separert format.
-Det skal *ikke* være laget noen filer med navn som `error_xyz-0.log`.
+Hvis alt har gått bra skal det *ikke* være laget noen filer med navn som `error_xyz-0.log`!
 
 *Hvis du av en eller annen grunn ikke kan installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
 
