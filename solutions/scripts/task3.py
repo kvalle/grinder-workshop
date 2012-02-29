@@ -20,9 +20,9 @@ class TestRunner:
     def __call__(self):
         for request, url in self.tests:
             response = request.GET(url)
-        if not self.is_valid(response):
-            grinder.statistics.forLastTest.success = 0
-        grinder.statistics.report()
+            if not self.is_valid(response):
+                grinder.statistics.forLastTest.success = 0
+            grinder.statistics.report()
             
     def is_valid(self, response):
         if len(response.getData()) < 10: return False

@@ -1,0 +1,2 @@
+http://localhost/test/foo,status=200,text=foo,not-text=fatal error
+http://localhost/test/bar,min-size=10,status=200

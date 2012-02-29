@@ -1,0 +1,39 @@
+from net.grinder.script.Grinder import grinder
+from net.grinder.script import Test
+from net.grinder.plugin.http import HTTPRequest
+
+url_file_path = grinder.getProperties().getProperty('task3.urls')
+
+class TestRunner:
+    def __init__(self):
+        url_file = open(url_file_path, 'rb')
+        self.tests = []
+        for num, line in enumerate(url_file):
+            line = [val.strip() for val in line.split(',')]
+            url, checks = line[0], line[1:]
+            request = Test(num, url).wrap(HTTPRequest())
+            self.tests.append((request, url, checks))
+        url_file.close()
+        grinder.statistics.delayReports = 1
+    
+    def __call__(self):
+        for request, url, checks in self.tests:
+            response = request.GET(url)
+            if not self.is_valid(response, checks):
+                grinder.statistics.forLastTest.success = 0
+            grinder.statistics.report()
+            
+    def is_valid(self, response, checks):
+        validators = {
+            'text': lambda text: text in response.getText(),
+            'not-text': lambda text: text not in response.getText(),
+            'status': lambda code: int(code) == response.getStatusCode(),
+            'min-size': lambda bytes: int(bytes) < len(response.getData())
+        }
+        for check in checks:
+            fn, value = check.split('=')
+            validator = validators.get(fn)
+            if not validator(value): 
+                return False
+        return True
+
