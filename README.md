@@ -131,6 +131,18 @@ Noen forslag til ting som kan testes på en enkel måte er
 - at responsen har en viss minimum størrelse (i linjer eller byte)
 - at responsen (ikke) inneholder en gitt tekst
 
+For å styre hvorvidt Grinder skal gjenkjenne gjennomføringen av en test som velykket eller ikke bruker vi `grinder.statistics`.
+Følgede kan være greie å kjenne til:
+
+* `grinder.statistics.delayReports = 1`  
+  Skrur av umiddelbar rapportering av resultater.
+  Bruk denne i starten av scriptet slik at vi kan melde inn resultatene manuelt.
+* `grinder.statistics.forLastTest.success = 0`  
+  Merker testen som ble kjørt sist som feilet.
+  Settes automatisk til 1 etter hver test.
+* `grinder.statistics.report()`  
+  Rapporter resultat for sist kjørte test.
+
 ### Ekstraoppgave:
 
 Hvis oppgaven blir enkel kan du utvide med å lage respons-sjekker spesielt tilpasset hver enkelt request.

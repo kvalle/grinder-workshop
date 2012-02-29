@@ -20,14 +20,14 @@ class TestRunner:
     def __call__(self):
         for request, url in self.tests:
             response = request.GET(url)
-            self.validate(response)
-    
-    def validate(self, response):
-        if response.getStatusCode() != 200:
-            grinder.statistics.forLastTest.success = 0
-        if len(response.getData()) < 10:
-            grinder.statistics.forLastTest.success = 0
-        if "text indicating that something is awry" in response.getText():
+        if not self.is_valid(response):
             grinder.statistics.forLastTest.success = 0
         grinder.statistics.report()
+            
+    def is_valid(self, response):
+        if len(response.getData()) < 10: return False
+        if response.getStatusCode() != 200: return False
+        if "foo bar" not in response.getText(): return False
+        if "fatal error" in response.getText(): return False
+        else: return True
 
