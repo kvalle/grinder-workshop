@@ -13,7 +13,7 @@ Det du trenger å gjøre er:
 - Hvis nødvendig, installer [Java](http://java.com/en/download).
 - Sjekk ut dette repositoriet.
 
-  `git clone git://github.com/kvalle/grinder-workshop.git`
+    git clone git://github.com/kvalle/grinder-workshop.git
 
 Når du er ferdig med å installere kan du sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
 
