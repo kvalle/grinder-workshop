@@ -1,5 +1,0 @@
-http://example.com
-http://example.com/foo
-http://example.com/bar
-http://example.net
-http://example.net/baz

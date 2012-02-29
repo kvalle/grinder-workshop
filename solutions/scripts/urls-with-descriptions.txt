@@ -1,4 +1,0 @@
-http://example.com           Site frontpage
-http://example.com/foo       Page about foo
-http://example.com/foo/bar   Page about bar
-http://example.com/404       Error 404 page
