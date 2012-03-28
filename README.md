@@ -149,7 +149,30 @@ Hvis oppgaven blir enkel kan du utvide med å lage respons-sjekker spesielt tilp
 Dette kan for eksempel løses ved å legge mer informasjon sammen med URL-ene i filen som leses, og bruke denne til å avgjøre hva som skal testes for hver URL.
 
 
-## Oppgave 4 - Bruk av TCPProxy for å lage tester
+## Task 4 - Testing of a typical JSON-API (REST API)
+
+Up until now, we have tested some pretty static pages. You (might have) parsed the response to do some basic content-check (e.g. to check whether some specific text are present, or if it's not). Now, it's time to do some more fancy parsing.
+
+We'll be testing against an API which returns JSON. This JSON will contain links to further stuff you can test against. These links will change for each request, this means that we'll have to parse the JSON to fetch the links - we can't hard-core all the links in the script beforehand. This task will prepare you for testing real API's out there, either if they have real links or if they just have ID's you have to parse out and include in a predefined URL-template.
+
+The easiest way to start is to do a manual call against the webpage: http://grinder.espenhh.com/json.php
+
+Take a look at the JSON, and figure out what you want to test. It could be smart to run the JSON through a "beautifier" (http://jsonformatter.curiousconcept.com/) to be better able to see the structure.
+
+Then, start writing the test. We'll give you complete freedom here, but to get you started you can do the following:
+
+1. Start by writing a test that fetches http://grinder.espenhh.com/json.php and outputs the result to the console
+2. Now, modify the test to parse the JSON.
+3. To start simple, print out the fetched-field on the JSON
+4. Now loop through all the tweets, and print out the tweets
+5. Find the URL for each tweets profile picture, and do a GET against this URL
+
+If you want to continue doing some JSON testing, you can try the real twitter API. And PLEASE: don't load-test this, just run with a single thread and a single run each time! Load-testing other people's servers without permission is BAD BEHAVIOUR ;)
+
+Twitter: http://search.twitter.com/search.json?q=grinder (change "grinder" to whatever you want)
+
+
+## Oppgave 5 - Bruk av TCPProxy for å lage tester
 
 
 Noen ganger ønsker man å teste en typisk brukerøkt.
@@ -158,7 +181,3 @@ Man kan da bruke [Grinders TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.
 I denne oppgaven skal du generere et testscript med `TCPProxy`.
 
 TODO: mer om oppgaven.
-
-## Oppgave 5 (++) - Testing av REST-API
-
-TODO: Espen
