@@ -172,12 +172,16 @@ If you want to continue doing some JSON testing, you can try the real twitter AP
 Twitter: http://search.twitter.com/search.json?q=grinder (change "grinder" to whatever you want)
 
 
-## Oppgave 5 - Bruk av TCPProxy for å lage tester
+## Task 5 - Using Grinder's TCPProxy to automatically generate tests
 
+Sometimes, you don't want to write all your tests by hand, you just want to simulate a user clicking through some pages in a browser. Grinder has support for this; by using the [Grinder TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.html) you can record a web-browsing-session and replay it using Grinder afterward. This technique will also generate a script which you can later modify (this is something you almost certainly would want to do!).
 
-Noen ganger ønsker man å teste en typisk brukerøkt.
-Man kan da bruke [Grinders TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.html) til å følge med på hva man gjør i nettleseren, og automatisk generere utkast til et script på bakgrunn av dette.
+Do the following tasks to record a simple web page:
 
-I denne oppgaven skal du generere et testscript med `TCPProxy`.
-
-TODO: mer om oppgaven.
+1. Start the proxy server by running the script ./startProxy.sh .. This will start a simple console that lets you input comments, and stop the proxy cleanly
+2. Configure your browser to send traffic through the proxy (read more [here](http://grinder.sourceforge.net/g3/tcpproxy.html) )
+3. Go to a simple web page (we recommend starting with http://grinder.espenhh.com/simple/ ). If you go to a complex page, the generated script will be crazy long
+4. After the page have loaded in the browser, click "stop" in the simple console window
+5. Inspect the script generated: it's located at proxy/proxygeneratedscript.sh
+6. Try running the script: ./startAgent.sh proxy/proxygeneratedscript.sh
+7. Check the log, try modifying the script, experiment. You can start by removing all the sleep statements in the script. Then try it on a more complicated page. Have fun =)
