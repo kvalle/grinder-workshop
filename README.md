@@ -1,5 +1,7 @@
 Materiale til workshop om enkel ytelsestesting med [Grinder](http://grinder.sourceforge.net), med fokus på testing av websider/applikasjoner.
 
+[Slides here](http://kvalle.github.com/grinder-workshop/slides).
+
 TODO: mer info om workshoppen.
 
 # Forberedelser
