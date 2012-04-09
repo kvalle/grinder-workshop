@@ -9,5 +9,5 @@ class TestRunner:
         self.request = test.wrap(HTTPRequest())
     
     def __call__(self):
-        self.request.GET("http://example.com")
+        self.request.GET("http://grinder.espenhh.com/rocksolid.php")
 
