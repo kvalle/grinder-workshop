@@ -19,7 +19,7 @@ Det du trenger å gjøre er:
 
 Når du er ferdig med å installere kan du sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
 
-    ./startAgent.sh example/example.properties
+    ./startAgent.sh example/scenario.properties
   
 Når du kjører dette eksempelet vil Grinder skrive ut en del informasjon.
 Først kommer det litt informasjon om hva som skjer under oppstarten, og muligens noen linjer med noe slikt som `*sys-package-mgr*: processing new jar`.
