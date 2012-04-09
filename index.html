@@ -103,10 +103,9 @@ The Grinder framework is comprised of three types of processes (or programs):
 
 The tests are defined in *test scripts*, which are run by the worker threads.
 
-A *test* is a unit of work for which Grinder record statistics. 
-Each test has a description, and an unique identification number. 
-
-Different actions, e.g. web page requests, can be recorded against the same test, in which case Grinder will aggregate the results.
+* A *test* is a unit of work for which Grinder record statistics. 
+* Each test has a description, and an unique identification number. 
+* Different actions, e.g. web page requests, can be tied to the same test, in which case Grinder will aggregate the results.
 
 ---
 
@@ -114,7 +113,9 @@ Different actions, e.g. web page requests, can be recorded against the same test
 
 ### Test configuration
 
-Each Grinder agent is configured from a `.properties` file. 
+Grinder agents are configured from a `.properties` files.
+
+These files can be viewed as *test scenarios*, as they contain a combination of what to test (which script), and how hard to test (how many workers, etc).
 
 * Defaults to `grinder.properties` unless one is specified at startup.
 * Used for configuring everything from logging to the number of worker processes/threads.
@@ -143,41 +144,85 @@ Another file, `errors_host_n.log`, is generated whenever the test scripts crash,
 
 Example excerpt from `data_host_n.log`
 
+    .no-highlight
     Thread, Run, Test, Start time (ms since Epoch), Test time, Errors
-    1, 0, 1, 1333974006317, 4, 0
-    1, 4, 1, 1333974006338, 1, 0
-    0, 4, 1, 1333974006339, 0, 0
-    1, 4, 1, 1333974006341, 0, 0
+    1, 0, 1, 1333975793927, 7, 0
+    0, 0, 1, 1333975793927, 8, 0
+    1, 0, 2, 1333975793935, 0, 0
+    0, 0, 2, 1333975793935, 0, 0
     ...
 
 And from `out_host_n.log` 
 
+    .no-highlight
                  Tests        Errors       Mean Test    Test Time    TPS          
                                            Time (ms)    Standard                  
                                                         Deviation                 
                                                         (ms)                      
 
-    Test 1       30           0            1.10         1.92         731.71        "test description"
-    Test 1       30           0            1.10         1.92         731.71        "test description"
+    Test 1       10           0            1.70         2.97         312.50        "first test"
+    Test 2       10           0            0.40         0.49         312.50        "another test"
 
-    Totals       30           0            1.10         1.92         731.71       
+    Totals       20           0            1.05         2.22         312.50
 
 ---
 
-Example of a simple test script:
+# Grinder 101
+
+### A simple example
+
+The first thing we need is a test script: `example/script.py`
 
     .python
+    from net.grinder.script.Grinder import grinder
     from net.grinder.script import Test
 
     def some_function():
-        print "Hello workshop :)"
+        run = grinder.getRunNumber()
+        thread = grinder.getThreadNumber()
+        print '> output #%d from worker thread %d' % (run, thread)
 
     class TestRunner:
+        
         def __init__(self):
             self.test = Test(1, "test description").wrap(some_function)
 
         def __call__(self):
             self.test()
+
+---
+
+# Grinder 101
+
+### A simple example
+
+Next, we need a configuration file: `example/scenario.properties`
+
+    .no-highlight
+    grinder.script = example.py
+
+    grinder.threads = 2
+    grinder.runs = 5
+    
+    grinder.useConsole = false
+    grinder.logDirectory = log
+    grinder.jvm.arguments: -Dpython.cachedir=/tmp -Xmx1000m
+
+---
+
+# Grinder 101
+
+### A simple example
+
+Finally, we run the test.
+
+    .bash
+    java -cp lib/grinder.jar net.grinder.Grinder example/scenario.properties
+    
+To simplify things we can also use the provided script.
+
+    .bash
+    ./startAgent.sh example/scenario.properties
 
 ---
 
