@@ -65,6 +65,8 @@ For more, check out the [feature page](http://grinder.sourceforge.net/g3/feature
 
 # Grinder 101
 
+### Framework overview
+
 The Grinder framework is comprised of three types of processes (or programs):
 
 1. *Worker processes*: Interprets test scripts and performs the tests using a number of parallel *worker threads*.
@@ -77,6 +79,8 @@ The Grinder framework is comprised of three types of processes (or programs):
 
 # Grinder 101
 
+### Framework overview
+
 .center[
     <img alt="Overview of the Grinder framework" src="./images/grinder-overview.png"/ style="width: 70%;">
 ]
@@ -84,6 +88,8 @@ The Grinder framework is comprised of three types of processes (or programs):
 ---
 
 # Grinder 101
+
+### Framework overview
 
 .center[
     <img alt="Overview of the Grinder framework" src="./images/grinder-overview-focus.png"/ style="width: 70%;">
@@ -108,9 +114,9 @@ Different actions, e.g. web page requests, can be recorded against the same test
 
 ### Test configuration
 
-Each Grinder agent is configured from a *properties*-file. 
+Each Grinder agent is configured from a `.properties` file. 
 
-* Default is `grinder.properties`, which is used unless one is specified at startup.
+* Defaults to `grinder.properties` unless one is specified at startup.
 * Used for configuring everything from logging to the number of worker processes/threads.
 * Specifies which *test script* to run, and how many times.
 * Can also contain custom properties for use within the test scripts.
@@ -119,11 +125,42 @@ Each Grinder agent is configured from a *properties*-file.
 
 # Grinder 101
 
-### Output
+### Test output
 
-Grinder outputs test results to files.
+Grinder outputs test results to file. Most important are `data_host_n.log` and `out_host_n.log`. 
 
-*example output*
+- *host* is the hostname of the machine running the worker, and *n* is the ID of the worker thread.
+- `data_host_n.log` contains detailed information about the execution of each test in CSV-format.
+- `out_host_n.log`contains an overview of the test execution, and a summary of the results.
+
+Another file, `errors_host_n.log`, is generated whenever the test scripts crash, and contains the stacktraces.
+
+---
+
+# Grinder 101
+
+### Test output
+
+Example excerpt from `data_host_n.log`
+
+    Thread, Run, Test, Start time (ms since Epoch), Test time, Errors
+    1, 0, 1, 1333974006317, 4, 0
+    1, 4, 1, 1333974006338, 1, 0
+    0, 4, 1, 1333974006339, 0, 0
+    1, 4, 1, 1333974006341, 0, 0
+    ...
+
+And from `out_host_n.log` 
+
+                 Tests        Errors       Mean Test    Test Time    TPS          
+                                           Time (ms)    Standard                  
+                                                        Deviation                 
+                                                        (ms)                      
+
+    Test 1       30           0            1.10         1.92         731.71        "test description"
+    Test 1       30           0            1.10         1.92         731.71        "test description"
+
+    Totals       30           0            1.10         1.92         731.71       
 
 ---
 
