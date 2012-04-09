@@ -86,7 +86,7 @@ To run the test, use the `startAgent` scriptet as follows.
 
     ./startAgent.sh tests/1.properties
    
-(Substitute `.sh` for `.bat` if you are doing this on Windows.)
+(If you are doing this on Windows, substitute `.bat` for `.sh` and use `\` instead of `/`.)
 
 In the test script, there are three things you need to do:
 
@@ -99,27 +99,29 @@ In the test script, there are three things you need to do:
 For how to do the actual GET request, have a look around the [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html).
 
 
-## Oppgave 2 - Testing av mange URLer om gangen
+## Task 2 - Testing multiple URLs
 
-Akkurat som i oppgave 1 har vi gjort klart properties-fila `tests/2.properties` og et skall for scriptet i `tests/scripts/task2.py`.
+Just like in task 1, we have also here prepared the configuration in `tests/2.properties`, and a shell for you to get started scripting in `tests/scripts/task2.py`.
 
-Filen `tests/scripts/urls.txt` inneholder en rekke URL-er.
-Oppgaven er ikke mye vanskeligere enn den forige, og går rett og slett ut på å lage et script som leser denne filen, og tester samtlige URL-er.
-Pass på å få laget en `Test` for hver URL slik at responstidene måles individuelt.
+The file `tests/scripts/urls.txt` contains a number of URLs.
+Your task is to write a scripts that reads this file, and then GETs each one in turn.
+Make sure you use different `Test` objects for each URL, to make Grinder record their response times individually.
 
-Testscriptet skal altså:
+In short, your script should:
 
-- Lese URL-ene fra filen.
-- Lage tester for hver URL.
-- GETe hver enkelt URL hver gang scriptet kjøres (altså, hver gang `__call__`-metoden i `TestRunner` blir kalt).
+- Read the URLs from file.
+- Create a `Test` for each URL. (Remember to wrap a HTTPRequest, like in the task 1.)
+- GET all the URLs every time the test script is run.
 
-### Ekstraoppgave:
+A few Python methods/concepts that could prove useful: enumerate, strip, arrays, open.
 
-Blir du raskt ferdig må du gjerne prøve deg på følgende:
+### Extra credits
 
-- Legg beskrivelser av hver test/URL sammen med URL-ene i `urls.txt`, og bruk disse når du oppretter `Test`-ene.
-- I stedet for å wrappe `HTTPRequest` med testene slik vi gjorde i oppgave 1, opprett i stedet lambda-funksjoner for å kalle GET med hver enkelt URL.
-  Disse kan i stedet wrappes av testene, slik du slipper å holde styr på listen av URL-er i `__call__` metoden.
+If you complete the task quickly, try one or more of the following:
+
+- Add descriptions to each URL in the `urls.txt` file, and use these when creating the `Test` objects.
+- Instead of wrapping `HTTPRequest` with the tests like we did in task 1, try wrapping a [lambda](http://docs.python.org/tutorial/controlflow.html#lambda-forms) that does all the work (e.g. create a HTTPRequest and call `GET` with the correct URL).
+  This way, you won't need to keep track of *both* test objects and their URLs in the `__call__` method.
 
 
 ## Oppgave 3 - Validering av responser
