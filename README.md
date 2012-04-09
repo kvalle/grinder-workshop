@@ -6,6 +6,8 @@ TODO: mer info om workshoppen.
 
 # Forberedelser
 
+TODO Espen: translate
+
 For å spare tid vil det være fint om alle kan gjøre noen forberedelser før workshoppen begynner.
 Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og sette opp Grinder først.
 
@@ -42,55 +44,59 @@ Hvis alt har gått bra skal det *ikke* være laget noen filer med navn som `erro
 
 *Hvis du av en eller annen grunn ikke kan installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
 
-# Ressurser
+# Resources
+
+TODO Espen: translate
 
 Vi har forsøkt å forklare hva som skal gjøres i oppgavene så godt vi kan, men det dukker naturligvis alltid opp spørsmål.
 I tilfelle vi ikke umiddelbart er tilgjengelige for å svare på disse, oppsummerer vi de viktigste stedene å finne informasjon under.
 
-## Grinder
-
 For informasjon om Grinder er [hjemmesiden](http://grinder.sourceforge.net/) et greit sted å starte.
 Det nyttigste stedet å starte for å lage test-script er [script-galleriet](http://grinder.sourceforge.net/g3/script-gallery.html) som inneholder en rekke gode eksempler.
 Det finnes også et [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) med forklaringer på hvordan de forskjellige klassene og metodene fungerer.
-
-## Python
 
 Det første stedet å sjekke om du har spørsmål til selve språket er [Pythons offisielle dokumentasjonen](http://docs.python.org/index.html).
 Her ligger veldig mye og god informasjon.
 En god måte å finne frem til denne er via [søkesiden](http://docs.python.org/search.html).
 For eventuelle spørsmål som går på samspillet mellom Python og Java er [hjemmesiden til Jython](http://www.jython.org/docs/index.html) stedet å starte.
 
-# Oppgaver
+# Tasks
 
-Oppgavene er beskrevet under.
-Det går fint an å løse oppgavene på egenhånd, men vi anbefaler å sitte to og to sammen.
+The tasks are described below.
+While you could perfectly well solve them by yourself, we reccomend that you work in pairs to get the most out of the workshop.
+This way, it will also be easier for us to help everybody.
 
-Vi starter svært enkelt med å måle responstid for GET over HTTP med én enkelt URL.
-Oppgavene blir gradvis vanskeligere, og vi vil komme innom blant annet sjekking av responser, generering av script ved hjelp av HTTPProxy, og testing av REST-API.
+The tasks start easy, by first only measuring the request time for a single URL.
+Through increasing difficulty, the tasks will then take us through testing multiple URLs, validating the responses, testing REST APIs, and utilizing Grinder's TCPProxy module to automatically generate test scripts.
 
-Siden dette er en workshop om Grinder og ikke Python, gir vi for hver oppgave tips om funksjoner det kan være greit å vite om.
-Vi er også tilgjengelige under hele workshoppen, så ikke nøl med å spørre om hjelp.
-
-Løsningsforslag til alle oppgavene ligger under `solutions/`.
+Solutions to all tasks can be found in the `solutions/` folder.
+Look at these if you wish, but only as a last resort if you are completely stuck and we are unable to help you!
 
 
-## Oppgave 1 - Enkel testing av responstid
+## Task 1 - Testing GET Response Time
 
-I den første oppgaven skal du skrive en Grinder-test som måler responstiden mot en enkelt URL over HTTP.
+In this first task, we will be writing a test to GET a single URL and measure the response time.
 
-For å hjelpe deg i gang har vi laget litt kode du kan ta utgangspunkt i.
-Vi har laget en ferdig properties-fil `tests/1.properties` som inneholder testkonfigurasjonen.
-Denne peker på testscriptet `tests/scripts/test1.py` som du må gjøre ferdig selv.
+We have prepared some of the code, to help you get started.
+First, the test configuration is ready made in `tests/1.properties`.
+This file points to the test script file, in `tests/scripts/test1.py`.
+Here we have only provided the shell, which you must complete to make the test do anything useful.
 
-For å kjøre testen kan du bruke `startAgent` scriptet på følgende måte:
+To run the test, use the `startAgent` scriptet as follows.
 
-    ./startAgent.sh tests/1
+    ./startAgent.sh tests/1.properties
    
-Det er tre ting som må gjøres:
+(Substitute `.sh` for `.bat` if you are doing this on Windows.)
 
-1. Opprett et `Test` med nummer og beskrivelse.
-2. Wrap en `HTTPRequest` med testen.
-3. Gjør en GET hver gang `__call__`-metoden blir kalt.
+In the test script, there are three things you need to do:
+
+1. Create a `Test` with identification number (could be anything) and a description.
+1. Wrap an instance of `HTTPRequest` with the test you just created.
+1. Do a GET request every every time the test is run (i.e. from the `__call__`-method).
+   You can GET any page you wish, just please be sure not to accidentally DOS-attack anybody.
+   A rather harmless alternative is to get [http://grinder.espenhh.com/rocksolid.php](http://grinder.espenhh.com/rocksolid.php).
+
+For how to do the actual GET request, have a look around the [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html).
 
 
 ## Oppgave 2 - Testing av mange URLer om gangen
