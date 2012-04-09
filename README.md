@@ -110,10 +110,10 @@ Make sure you use different `Test` objects for each URL, to make Grinder record 
 In short, your script should:
 
 - Read the URLs from file.
-- Create a `Test` for each URL. (Remember to wrap a HTTPRequest, like in the task 1.)
+- Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
 - GET all the URLs every time the test script is run.
 
-A few Python methods/concepts that could prove useful: enumerate, strip, arrays, open.
+A few Python methods/concepts that could prove useful: [enumerate](http://docs.python.org/library/functions.html#enumerate), [strip](http://docs.python.org/library/stdtypes.html#str.strip), [lists](http://docs.python.org/tutorial/datastructures.html), [open](http://docs.python.org/library/functions.html#open).
 
 ### Extra credits
 
