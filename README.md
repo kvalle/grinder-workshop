@@ -45,19 +45,17 @@ If everything ran smoothly there should *not* be any files with names like `erro
 
 # Resources
 
-TODO Espen: translate
+We have tried to explain what to do in the tasks as best as we can, but there will always be some questions.
+In case we aren't immediately available to respond to these, and your pal sitting next to you can't help you either, we have summarized the most important places to find information below.
 
-Vi har forsøkt å forklare hva som skal gjøres i oppgavene så godt vi kan, men det dukker naturligvis alltid opp spørsmål.
-I tilfelle vi ikke umiddelbart er tilgjengelige for å svare på disse, oppsummerer vi de viktigste stedene å finne informasjon under.
+For information about Grinder, it's [website](http://grinder.sourceforge.net/) is a good place to start.
+For inspiration and help regarding the test scripts, the [script-gallery](http://grinder.sourceforge.net/g3/script-gallery.html) is a good place to start. It contains a number of good examples.
+There is also a [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) with explanations of how the various classes and methods work.
 
-For informasjon om Grinder er [hjemmesiden](http://grinder.sourceforge.net/) et greit sted å starte.
-Det nyttigste stedet å starte for å lage test-script er [script-galleriet](http://grinder.sourceforge.net/g3/script-gallery.html) som inneholder en rekke gode eksempler.
-Det finnes også et [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) med forklaringer på hvordan de forskjellige klassene og metodene fungerer.
-
-Det første stedet å sjekke om du har spørsmål til selve språket er [Pythons offisielle dokumentasjonen](http://docs.python.org/index.html).
-Her ligger veldig mye og god informasjon.
-En god måte å finne frem til denne er via [søkesiden](http://docs.python.org/search.html).
-For eventuelle spørsmål som går på samspillet mellom Python og Java er [hjemmesiden til Jython](http://www.jython.org/docs/index.html) stedet å starte.
+The first place to check if you have any questions about the language: [Pythons official documentation](http://docs.python.org/index.html).
+It contains a smorgasbord of good information.
+A good way to navigate this is through the [search site](http://docs.python.org/search.html).
+For any question that on the interaction between Python and Java, the [Jython home page](http://www.jython.org/docs/index.html) is the place to start.
 
 # Tasks
 
