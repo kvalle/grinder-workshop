@@ -4,6 +4,10 @@ This repo contains all the material you need to participate in the [Grinder](htt
 
 You can get [a copy of the slides here](http://kvalle.github.com/grinder-workshop/).
 
+**For windows-users:** we'll refer to bash-scripts throughout this workshop (`script.sh`), but you'll find corresponding BAT-scripts for windows (`script.bat`) that you can use (or you can use Cygwin).
+
+-----------
+
 # Preparation before the workshop
 
 To save us all some time, it would be nice if everyone could do some preparation before the workshop begins. That let's us begin working on the tasks immediately, and gives us much more time to learn and help each other.
@@ -59,6 +63,8 @@ The first place to check if you have any questions about the language: [Pythons 
 It contains a smorgasbord of good information.
 A good way to navigate this is through the [search site](http://docs.python.org/search.html).
 For any question that on the interaction between Python and Java, the [Jython home page](http://www.jython.org/docs/index.html) is the place to start.
+
+---------------
 
 # Tasks
 
