@@ -1,9 +1,8 @@
-Materiale til workshop om enkel ytelsestesting med [Grinder](http://grinder.sourceforge.net), med fokus på testing av websider/applikasjoner.
+This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop which will be held at [Roots 2012]() and [TestFree 2012]().
 
-[Slides here](http://kvalle.github.com/grinder-workshop/).
+**In order to be able to get started quickly, you should do the preparations described in the next section.**
 
-TODO: mer info om workshoppen.
-
+You can get [a copy of the slides here](http://kvalle.github.com/grinder-workshop/).
 
 # Preparation before the workshop
 
@@ -15,7 +14,7 @@ What you need to do is:
 - If necessary, install [Java](http://java.com/en/download).
 - Check out this repository.
 
-    git clone git://github.com/kvalle/grinder-workshop.git
+    `git clone git://github.com/kvalle/grinder-workshop.git`
 
 When you are finished with these simple steps, you can check that everything works by running the sample test:
 
@@ -38,10 +37,14 @@ This should look something like the following:
 
 When the test has finished running, you can also check that everything is okay by inspection the results that have been stored in the newly created directory `grinder-workshop/log`.
 It should be two files with names like `out_xyz-0.log` and `data_xyz-0.log` where `xyz` is the name of your computer.
-The `out`-file contains a summary of the test results, and the `data 'file contains all the details in a comma-separated format.
+The `out`-file contains a summary of the test results, and the `data`file contains all the details in a comma-separated format.
 If everything ran smoothly there should *not* be any files with names like `error_xyz-0.log`!
 
 *If you for some reason can't install git it is also possible to download [the code as zip file](https://github.com/kvalle/grinder-workshop/zipball/master).*
+
+**Everything below here will be covered at the workshop, but feel free to "peak" beforehand :)**
+
+--------------------
 
 # Resources
 
