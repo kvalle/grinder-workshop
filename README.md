@@ -4,31 +4,30 @@ Materiale til workshop om enkel ytelsestesting med [Grinder](http://grinder.sour
 
 TODO: mer info om workshoppen.
 
-# Forberedelser
 
-TODO Espen: translate
+# Preparation before the workshop
 
-For å spare tid vil det være fint om alle kan gjøre noen forberedelser før workshoppen begynner.
-Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og sette opp Grinder først.
+To save us all some time, it would be nice if everyone could do some preparation before the workshop begins. That let's us begin working on the tasks immediately, and gives us much more time to learn and help each other.
 
-Det du trenger å gjøre er:
+What you need to do is:
 
-- Hvis nødvendig, installer [git](http://git-scm.com/download).
-- Hvis nødvendig, installer [Java](http://java.com/en/download).
-- Sjekk ut dette repositoriet.
+- If necessary, install [git](http://git-scm.com/download).
+- If necessary, install [Java](http://java.com/en/download).
+- Check out this repository.
 
     git clone git://github.com/kvalle/grinder-workshop.git
 
-Når du er ferdig med å installere kan du sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
+When you are finished with these simple steps, you can check that everything works by running the sample test:
 
+    cd grinder-workshop
     ./startAgent.sh example/scenario.properties
   
-Når du kjører dette eksempelet vil Grinder skrive ut en del informasjon.
-Først kommer det litt informasjon om hva som skjer under oppstarten, og muligens noen linjer med noe slikt som `*sys-package-mgr*: processing new jar`.
-Ignorer dette for nå.
+When you run this example, Grinder will output some information.
+First there will be some information about what happens during the start-up of Grinder, and possibly a few lines with something like `*sys-package-mgr*: processing new jar`.
+Ignore this for now.
 
-Deretter skriver selve eksempel-testene ut litt info mens de kjøres.
-Dette bør se ut omtrent som følgende:
+Then the example-test will output some information while running.
+This should look something like the following:
 
     > output #0 from worker thread 1
     > output #0 from worker thread 0
@@ -37,12 +36,12 @@ Dette bør se ut omtrent som følgende:
     > output #2 from worker thread 0
     ...
 
-Når testen har kjørt ferdig kan du i tillegg sjekke at alt har gått riktig for seg ved å titte på resultatet som skal ha blitt lagret i den nyopprettede mappen `grinder-workshop/log`.
-Her skal det ligge to filer med navn som `out_xyz-0.log` og `data_xyz-0.log`, der `xyz` er navnet på din datamaskin.
-I `out`-filen finner du et sammendrag av testens resultater, og `data`-filen inneholder alle detaljene i et komma-separert format.
-Hvis alt har gått bra skal det *ikke* være laget noen filer med navn som `error_xyz-0.log`!
+When the test has finished running, you can also check that everything is okay by inspection the results that have been stored in the newly created directory `grinder-workshop/log`.
+It should be two files with names like `out_xyz-0.log` and `data_xyz-0.log` where `xyz` is the name of your computer.
+The `out`-file contains a summary of the test results, and the `data 'file contains all the details in a comma-separated format.
+If everything ran smoothly there should *not* be any files with names like `error_xyz-0.log`!
 
-*Hvis du av en eller annen grunn ikke kan installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
+*If you for some reason can't install git it is also possible to download [the code as zip file](https://github.com/kvalle/grinder-workshop/zipball/master).*
 
 # Resources
 
