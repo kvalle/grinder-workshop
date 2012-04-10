@@ -1,4 +1,4 @@
-This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop which will be held at [Roots 2012]() and [TestFree 2012]().
+This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop which will be held at [Roots 2012](http://rootsconf.no/) and [Free-Test 2012](http://www.dataforeningen.no/forside.194266.no.html).
 
 **In order to be able to get started quickly, you should do the preparations described in the next section.**
 
