@@ -106,6 +106,7 @@ In the test script, there are three things you need to do:
 
 For how to do the actual GET request, have a look around the [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html).
 
+Once done, check out your results stored in the `grinder-workshop/log` folder.
 
 ## Task 2 - Testing multiple URLs
 
@@ -119,9 +120,9 @@ Make sure you use different `Test` objects for each URL, to make Grinder record 
 
 In short, your script should:
 
-- Read the URLs from file.
-- Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
-- GET all the URLs every time the test script is run.
+1. Read the URLs from file.
+1. Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
+1. GET all the URLs every time the test script is run.
 
 Here are a few Python methods/concepts that could prove useful: 
 
@@ -161,10 +162,9 @@ You decide your own response checks, but here are a few suggestions:
 
 You could test that the...
 
-- HTTP status code is (for example) 200
+- HTTP status code is 200 (for example)
 - response body is larger than some minimum size (in lines, or in bytes)
-- response contains some string of text
-- response does not contain some other string
+- response contains (or does not contain) some string of text
 - HTTP header contains some field
 
 ### How-to
@@ -189,6 +189,8 @@ You need to know about the following:
 * `grinder.statistics.report()`:
   This method reports the result of the latest run test.
   Call it after your checks have determined success or failure.
+
+To verify that your checks are working, fail some tests and have a look at the test results.
 
 ### Extras
 
