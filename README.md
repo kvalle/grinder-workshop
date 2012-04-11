@@ -1,34 +1,36 @@
-Materiale til workshop om enkel ytelsestesting med [Grinder](http://grinder.sourceforge.net), med fokus på testing av websider/applikasjoner.
+This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop which will be held at [Roots 2012](http://rootsconf.no/) and [Free-Test 2012](http://www.dataforeningen.no/forside.194266.no.html).
 
-[Slides here](http://kvalle.github.com/grinder-workshop/).
+**In order to be able to get started quickly, you should do the preparations described in the next section.**
 
-TODO: mer info om workshoppen.
+You can get [a copy of the slides here](http://kvalle.github.com/grinder-workshop/).
 
-# Forberedelser
+**For windows-users:** we'll refer to bash-scripts throughout this workshop (`script.sh`), but you'll find corresponding BAT-scripts for windows (`script.bat`) that you can use (or you can use Cygwin).
 
-TODO Espen: translate
+-----------
 
-For å spare tid vil det være fint om alle kan gjøre noen forberedelser før workshoppen begynner.
-Vi kan da begynne rett på arbeidet med oppgavene, uten å måtte installere og sette opp Grinder først.
+# Preparation before the workshop
 
-Det du trenger å gjøre er:
+To save us all some time, it would be nice if everyone could do some preparation before the workshop begins. That let's us begin working on the tasks immediately, and gives us much more time to learn and help each other.
 
-- Hvis nødvendig, installer [git](http://git-scm.com/download).
-- Hvis nødvendig, installer [Java](http://java.com/en/download).
-- Sjekk ut dette repositoriet.
+What you need to do is:
 
-    git clone git://github.com/kvalle/grinder-workshop.git
+- If necessary, install [git](http://git-scm.com/download).
+- If necessary, install [Java](http://java.com/en/download).
+- Check out this repository.
 
-Når du er ferdig med å installere kan du sjekke at alt fungerer ved å kjøre eksempel-testen (når du står i mappen `grinder-workshop`):
+    `git clone git://github.com/kvalle/grinder-workshop.git`
 
+When you are finished with these simple steps, you can check that everything works by running the sample test:
+
+    cd grinder-workshop
     ./startAgent.sh example/scenario.properties
   
-Når du kjører dette eksempelet vil Grinder skrive ut en del informasjon.
-Først kommer det litt informasjon om hva som skjer under oppstarten, og muligens noen linjer med noe slikt som `*sys-package-mgr*: processing new jar`.
-Ignorer dette for nå.
+When you run this example, Grinder will output some information.
+First there will be some information about what happens during the start-up of Grinder, and possibly a few lines with something like `*sys-package-mgr*: processing new jar`.
+Ignore this for now.
 
-Deretter skriver selve eksempel-testene ut litt info mens de kjøres.
-Dette bør se ut omtrent som følgende:
+Then the example-test will output some information while running.
+This should look something like the following:
 
     > output #0 from worker thread 1
     > output #0 from worker thread 0
@@ -37,28 +39,32 @@ Dette bør se ut omtrent som følgende:
     > output #2 from worker thread 0
     ...
 
-Når testen har kjørt ferdig kan du i tillegg sjekke at alt har gått riktig for seg ved å titte på resultatet som skal ha blitt lagret i den nyopprettede mappen `grinder-workshop/log`.
-Her skal det ligge to filer med navn som `out_xyz-0.log` og `data_xyz-0.log`, der `xyz` er navnet på din datamaskin.
-I `out`-filen finner du et sammendrag av testens resultater, og `data`-filen inneholder alle detaljene i et komma-separert format.
-Hvis alt har gått bra skal det *ikke* være laget noen filer med navn som `error_xyz-0.log`!
+When the test has finished running, you can also check that everything is okay by inspection the results that have been stored in the newly created directory `grinder-workshop/log`.
+It should be two files with names like `out_xyz-0.log` and `data_xyz-0.log` where `xyz` is the name of your computer.
+The `out`-file contains a summary of the test results, and the `data`file contains all the details in a comma-separated format.
+If everything ran smoothly there should *not* be any files with names like `error_xyz-0.log`!
 
-*Hvis du av en eller annen grunn ikke kan installere git går det også an å laste ned [koden som zip-fil](https://github.com/kvalle/grinder-workshop/zipball/master).*
+*If you for some reason can't install git it is also possible to download [the code as zip file](https://github.com/kvalle/grinder-workshop/zipball/master).*
+
+**Everything below here will be covered at the workshop, but feel free to "peak" beforehand :)**
+
+--------------------
 
 # Resources
 
-TODO Espen: translate
+We have tried to explain what to do in the tasks as best as we can, but there will always be some questions.
+In case we aren't immediately available to respond to these, and your pal sitting next to you can't help you either, we have summarized the most important places to find information below.
 
-Vi har forsøkt å forklare hva som skal gjøres i oppgavene så godt vi kan, men det dukker naturligvis alltid opp spørsmål.
-I tilfelle vi ikke umiddelbart er tilgjengelige for å svare på disse, oppsummerer vi de viktigste stedene å finne informasjon under.
+For information about Grinder, it's [website](http://grinder.sourceforge.net/) is a good place to start.
+For inspiration and help regarding the test scripts, the [script-gallery](http://grinder.sourceforge.net/g3/script-gallery.html) is a good place to start. It contains a number of good examples.
+There is also a [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) with explanations of how the various classes and methods work.
 
-For informasjon om Grinder er [hjemmesiden](http://grinder.sourceforge.net/) et greit sted å starte.
-Det nyttigste stedet å starte for å lage test-script er [script-galleriet](http://grinder.sourceforge.net/g3/script-gallery.html) som inneholder en rekke gode eksempler.
-Det finnes også et [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) med forklaringer på hvordan de forskjellige klassene og metodene fungerer.
+The first place to check if you have any questions about the language: [Pythons official documentation](http://docs.python.org/index.html).
+It contains a smorgasbord of good information.
+A good way to navigate this is through the [search site](http://docs.python.org/search.html).
+For any question that on the interaction between Python and Java, the [Jython home page](http://www.jython.org/docs/index.html) is the place to start.
 
-Det første stedet å sjekke om du har spørsmål til selve språket er [Pythons offisielle dokumentasjonen](http://docs.python.org/index.html).
-Her ligger veldig mye og god informasjon.
-En god måte å finne frem til denne er via [søkesiden](http://docs.python.org/search.html).
-For eventuelle spørsmål som går på samspillet mellom Python og Java er [hjemmesiden til Jython](http://www.jython.org/docs/index.html) stedet å starte.
+---------------
 
 # Tasks
 
