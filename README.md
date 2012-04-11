@@ -88,7 +88,7 @@ First, the test configuration is ready made in `tests/1.properties`.
 This file points to the test script file, in `tests/scripts/test1.py`.
 Here we have only provided the shell, which you must complete to make the test do anything useful.
 
-To run the test, use the `startAgent` scriptet as follows.
+To run the test, use the `startAgent` script as follows.
 
     ./startAgent.sh tests/1.properties
    
@@ -125,15 +125,15 @@ In short, your script should:
 
 Here are a few Python methods/concepts that could prove useful: 
 
-- [open](http://docs.python.org/library/functions.html#open):
-  Read a file from disc.
-- [lists](http://docs.python.org/tutorial/datastructures.html):
-  Use lists for holding your tests, URLs, etc.
-- [enumerate](http://docs.python.org/library/functions.html#enumerate): 
-  Provides a way to iterate over a list with indices. 
-  Useful for creating test IDs.
-- [strip](http://docs.python.org/library/stdtypes.html#str.strip):
-  Remove leading and trailing whitespace from strings.
+[open](http://docs.python.org/library/functions.html#open):
+Read a file from disc.  
+[lists](http://docs.python.org/tutorial/datastructures.html):
+Use lists for holding your tests, URLs, etc.  
+[enumerate](http://docs.python.org/library/functions.html#enumerate): 
+Provides a way to iterate over a list with indices. 
+Useful for creating test IDs.  
+[strip](http://docs.python.org/library/stdtypes.html#str.strip):
+Remove leading and trailing whitespace from strings.
 
 ### Extras
 
@@ -151,7 +151,7 @@ But sending a request and waiting for some response, does not ensure that you ge
 In this task, we will enhance the script to inspect the responses, and validate them against a set of requirements.
 Should not the response fulfil the requirements, we will fail the particular test.
 
-In this task, we have not made any code for you to start from.
+Here we have not made any code for you to start from.
 Instead, you'll be able to use the results from task 2 as a basis, and expand on that.
 In case you did not quite finish the previous task, but still would like to move ahead, make use of the [provided solutions](https://github.com/kvalle/grinder-workshop/tree/master/solutions).
 
@@ -160,6 +160,7 @@ You'll have the entire HTTP response to play with, so the possibilities are quit
 You decide your own response checks, but here are a few suggestions:
 
 You could test...
+
 - that the HTTP status code is (for example) 200
 - that the response body is larger than some minimum size (in lines, or in bytes)
 - that the response contains some string of text
@@ -173,7 +174,7 @@ Have a look at [the API](http://grinder.sourceforge.net/g3/script-javadoc/HTTPCl
 Use these to create your response checks.
 
 To control whether Grinder should record the execution of a test as a success or failure, use `grinder.statistics`.
-(You will need the following import:
+You will need the following import, which should be familiar by now:
 
     from net.grinder.script.Grinder import grinder
 
@@ -197,7 +198,7 @@ In most cases, you will have different requirements when testing different URLs.
 Some pages should perhaps have different status codes, contain different text, or return different headers.
 Implement this by adding information about which validation checks to perform alongside the URLs in the input file.
 
-Hint: For this, the [csv file format](http://docs.python.org/library/csv.html) could prove useful.
+Hint: For this, the [csv file reader](http://docs.python.org/library/csv.html) could prove useful.
 
 
 ## Task 4 - Testing of a typical JSON-API (REST API)
