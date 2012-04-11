@@ -4,7 +4,7 @@ This repo contains all the material you need to participate in the [Grinder](htt
 
 You can get [a copy of the slides here](http://kvalle.github.com/grinder-workshop/).
 
-**For windows-users:** we'll refer to bash-scripts throughout this workshop (`script.sh`), but you'll find corresponding BAT-scripts for windows (`script.bat`) that you can use (or you can use Cygwin).
+**For windows-users:** we'll refer to bash-scripts throughout this workshop (`script.sh`), but you'll find corresponding BAT-scripts for windows (`script.bat`) that you can use (if you are not using Cygwin).
 
 -----------
 
@@ -14,9 +14,9 @@ To save us all some time, it would be nice if everyone could do some preparation
 
 What you need to do is:
 
-- If necessary, install [git](http://git-scm.com/download).
-- If necessary, install [Java](http://java.com/en/download).
-- Check out this repository.
+- Make sure you have [git](http://git-scm.com/download) installed
+- Make sure you have [Java](http://java.com/en/download) installed
+- Check out this repository
 
     `git clone git://github.com/kvalle/grinder-workshop.git`
 
@@ -159,13 +159,13 @@ The set of requirements are largely up to you.
 You'll have the entire HTTP response to play with, so the possibilities are quite open.
 You decide your own response checks, but here are a few suggestions:
 
-You could test...
+You could test that the...
 
-- that the HTTP status code is (for example) 200
-- that the response body is larger than some minimum size (in lines, or in bytes)
-- that the response contains some string of text
-- that the response does not contain some other string
-- that the HTTP header contains some field
+- HTTP status code is (for example) 200
+- response body is larger than some minimum size (in lines, or in bytes)
+- response contains some string of text
+- response does not contain some other string
+- HTTP header contains some field
 
 ### How-to
 
