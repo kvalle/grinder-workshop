@@ -88,6 +88,8 @@ To run the test, use the `startAgent` scriptet as follows.
    
 (If you are doing this on Windows, substitute `.bat` for `.sh` and use `\` instead of `/`.)
 
+### How-to
+
 In the test script, there are three things you need to do:
 
 1. Create a `Test` with identification number (could be anything) and a description.
@@ -107,15 +109,27 @@ The file `tests/scripts/urls.txt` contains a number of URLs.
 Your task is to write a scripts that reads this file, and then GETs each one in turn.
 Make sure you use different `Test` objects for each URL, to make Grinder record their response times individually.
 
+### How-to
+
 In short, your script should:
 
 - Read the URLs from file.
 - Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
 - GET all the URLs every time the test script is run.
 
-A few Python methods/concepts that could prove useful: [enumerate](http://docs.python.org/library/functions.html#enumerate), [strip](http://docs.python.org/library/stdtypes.html#str.strip), [lists](http://docs.python.org/tutorial/datastructures.html), [open](http://docs.python.org/library/functions.html#open).
+Here are a few Python methods/concepts that could prove useful: 
 
-### Extra credits
+- [open](http://docs.python.org/library/functions.html#open):
+  Read a file from disc.
+- [lists](http://docs.python.org/tutorial/datastructures.html):
+  Use lists for holding your tests, URLs, etc.
+- [enumerate](http://docs.python.org/library/functions.html#enumerate): 
+  Provides a way to iterate over a list with indices. 
+  Useful for creating test IDs.
+- [strip](http://docs.python.org/library/stdtypes.html#str.strip):
+  Remove leading and trailing whitespace from strings.
+
+### Extras
 
 If you complete the task quickly, try one or more of the following:
 
@@ -124,39 +138,60 @@ If you complete the task quickly, try one or more of the following:
   This way, you won't need to keep track of *both* test objects and their URLs in the `__call__` method.
 
 
-## Oppgave 3 - Validering av responser
+## Task 3 - Validating the responses
 
-I oppgave 3 er det ikke laget noen kode å ta utgangspunkt i -- i stedet bygger vi videre på løsningen fra oppgave 2.
-Dersom du ikke ferdig med forrige oppgave, men likevel har lyst til å begynne med denne, kan du sjekke løsningsforslaget i `solutions/2.properties` og `solutions/scripts/task2.py`.
+In task 2, you created a test script for timing the responses while GETing a series of URLs.
+But sending a request and waiting for some response, does not ensure that you get back is what you expected or wanted.
+In this task, we will enhance the script to inspect the responses, and validate them against a set of requirements.
+Should not the response fulfil the requirements, we will fail the particular test.
 
-Oppgaven går ut på å få testene til å se nærmere på responsene vi får tilbake.
-Så langt har vi gjort GET requests mot de forskjellige URL-ene, og registrert alle forepørsler som har gitt svar som suksesser.
-Du skal nå legge på noen respons-sjekker som feiler tester dersom vi ikke får tilbake det vi forventer.
+In this task, we have not made any code for you to start from.
+Instead, you'll be able to use the results from task 2 as a basis, and expand on that.
+In case you did not quite finish the previous task, but still would like to move ahead, make use of the [provided solutions](https://github.com/kvalle/grinder-workshop/tree/master/solutions).
 
-Du velger selv hva du ønsker å teste.
-(Her er det bare fantasien som setter begrensninger!)
-Noen forslag til ting som kan testes på en enkel måte er
+The set of requirements are largely up to you.
+You'll have the entire HTTP response to play with, so the possibilities are quite open.
+You decide your own response checks, but here are a few suggestions:
 
-- at HTTP statuskode er 200
-- at responsen har en viss minimum størrelse (i linjer eller byte)
-- at responsen (ikke) inneholder en gitt tekst
+You could test...
+- that the HTTP status code is (for example) 200
+- that the response body is larger than some minimum size (in lines, or in bytes)
+- that the response contains some string of text
+- that the response does not contain some other string
+- that the HTTP header contains some field
 
-For å styre hvorvidt Grinder skal gjenkjenne gjennomføringen av en test som velykket eller ikke bruker vi `grinder.statistics`.
-Følgede kan være greie å kjenne til:
+### How-to
 
-* `grinder.statistics.delayReports = 1`  
-  Skrur av umiddelbar rapportering av resultater.
-  Bruk denne i starten av scriptet slik at vi kan melde inn resultatene manuelt.
-* `grinder.statistics.forLastTest.success = 0`  
-  Merker testen som ble kjørt sist som feilet.
-  Settes automatisk til 1 etter hver test.
-* `grinder.statistics.report()`  
-  Rapporter resultat for sist kjørte test.
+To perform the checks, capture the `HTTPResponse` object returned from the `GET` method.
+Have a look at [the API](http://grinder.sourceforge.net/g3/script-javadoc/HTTPClient/HTTPResponse.html) to find out which methods you have available.
+Use these to create your response checks.
 
-### Ekstraoppgave:
+To control whether Grinder should record the execution of a test as a success or failure, use `grinder.statistics`.
+(You will need the following import:
 
-Hvis oppgaven blir enkel kan du utvide med å lage respons-sjekker spesielt tilpasset hver enkelt request.
-Dette kan for eksempel løses ved å legge mer informasjon sammen med URL-ene i filen som leses, og bruke denne til å avgjøre hva som skal testes for hver URL.
+    from net.grinder.script.Grinder import grinder
+
+You need to know about the following:
+
+* `grinder.statistics.delayReports = 1`:
+  Turns of the (default) mode of immediate result reporting.
+  Use this in the beginning of your script, e.g. in the `__init__` method, in order to be able to manually control the reporting.
+* `grinder.statistics.forLastTest.success = 0`:
+  This will mark the last test run as a failure.
+  The value is automatically set to 1 after each test, so you don't need to do anything if the test is successful.
+* `grinder.statistics.report()`:
+  This method reports the result of the latest run test.
+  Call it after your checks have determined success or failure.
+
+### Extras
+
+If you finish quickly and have some extra time on your hands, consider the following.
+
+In most cases, you will have different requirements when testing different URLs.
+Some pages should perhaps have different status codes, contain different text, or return different headers.
+Implement this by adding information about which validation checks to perform alongside the URLs in the input file.
+
+Hint: For this, the [csv file format](http://docs.python.org/library/csv.html) could prove useful.
 
 
 ## Task 4 - Testing of a typical JSON-API (REST API)
