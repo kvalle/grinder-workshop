@@ -141,8 +141,8 @@ Remove leading and trailing whitespace from strings.
 If you complete the task quickly, try one or more of the following:
 
 - Add descriptions to each URL in the `urls.txt` file, and use these when creating the `Test` objects.
-- Instead of wrapping `HTTPRequest` with the tests like we did in task 1, try wrapping a [lambda](http://docs.python.org/tutorial/controlflow.html#lambda-forms) that does all the work (e.g. create a HTTPRequest and call `GET` with the correct URL).
-  This way, you won't need to keep track of *both* test objects and their URLs in the `__call__` method.
+- Instead of wrapping `HTTPRequest` with the tests like we did in task 1, try creating functions to do all the work (e.g. create a HTTPRequest and call `GET` with the correct URL), and then wrap these with your tests.
+  This way, you won't need to keep track of URLs in addition to the tests in the `__call__` method.
 
 
 ## Task 3 - Validating the responses

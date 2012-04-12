@@ -5,7 +5,10 @@ from net.grinder.plugin.http import HTTPRequest
 url_file_path = grinder.getProperties().getProperty('task2.urls')
 
 def request_factory(url):
-    return lambda: HTTPRequest().GET(url)
+    def send_request():
+        request = HTTPRequest()
+        request.GET(url)
+    return send_request
             
 class TestRunner:
 
@@ -15,8 +18,9 @@ class TestRunner:
         for num, line in enumerate(url_file):
             url, description = line.split(' ', 1)
             test = Test(num, description.strip())
-            request = test.wrap(request_factory(url))
-            self.requests.append(request)
+            request_fn = request_factory(url)
+            wrapped_request_fn = test.wrap(request_fn)
+            self.requests.append(wrapped_request_fn)
         url_file.close()
     
     def __call__(self):
