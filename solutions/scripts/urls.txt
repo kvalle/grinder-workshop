@@ -1,5 +1,7 @@
-http://example.com
-http://example.com/foo
-http://example.com/bar
-http://example.net
-http://example.net/baz
+http://grinder.espenhh.com/dummy-site/
+http://grinder.espenhh.com/dummy-site/foo.php
+http://grinder.espenhh.com/dummy-site/bar.php
+http://grinder.espenhh.com/dummy-site/baz.php
+http://grinder.espenhh.com/dummy-site/unreliable-link.php
+http://grinder.espenhh.com/dummy-site/bad-link.php
+http://grinder.espenhh.com/dummy-site/404.php
