@@ -181,14 +181,14 @@ You will need the following import, which should be familiar by now:
 
     from net.grinder.script.Grinder import grinder
 
-You need to know about the following:
+You need to know about and use the following:
 
-* `grinder.statistics.delayReports = 1`:
-  Turns of the (default) mode of immediate result reporting.
+* `grinder.statistics.setDelayReports(True)`:
+  Turns off immediate result reporting, which is enabled by default.
   Use this in the beginning of your script, e.g. in the `__init__` method, in order to be able to manually control the reporting.
-* `grinder.statistics.forLastTest.success = 0`:
+* `grinder.statistics.getForLastTest().setSuccess(False)`:
   This will mark the last test run as a failure.
-  The value is automatically set to 1 after each test, so you don't need to do anything if the test is successful.
+  The results of each test is automatically set to `sucess==True`, so you don't need to do anything unless you need to register the test as a failure.
 * `grinder.statistics.report()`:
   This method reports the result of the latest run test.
   Call it after your checks have determined success or failure.

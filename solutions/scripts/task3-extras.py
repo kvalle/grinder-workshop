@@ -15,13 +15,13 @@ class TestRunner:
             request = test.wrap(HTTPRequest())
             self.tests.append((request, url, checks))
         url_file.close()
-        grinder.statistics.delayReports = 1
+        grinder.statistics.setDelayReports(True)
     
     def __call__(self):
         for request, url, checks in self.tests:
             response = request.GET(url)
             if not self.is_valid(response, checks):
-                grinder.statistics.forLastTest.success = 0
+                grinder.statistics.getForLastTest().setSuccess(False)
             grinder.statistics.report()
             
     def is_valid(self, response, checks):
