@@ -27,7 +27,6 @@ class TestRunner:
     def is_valid(self, response):
         if len(response.getData()) < 10: return False
         if response.getStatusCode() != 200: return False
-        if "foo bar" not in response.getText(): return False
-        if "fatal error" in response.getText(): return False
+        if "epic fail" in response.getText(): return False
         else: return True
 
