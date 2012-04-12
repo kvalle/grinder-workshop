@@ -112,8 +112,8 @@ Once done, check out your results stored in the `grinder-workshop/log` folder.
 
 Just like in task 1, we have also here prepared the configuration in `tests/2.properties`, and a shell for you to get started scripting in `tests/scripts/task2.py`.
 
-The file `tests/scripts/urls.txt` contains a number of URLs.
-Your task is to write a scripts that reads this file, and then GETs each one in turn.
+The file `tests/scripts/urls.txt` contains a number of URLs to a small dummy site.
+Your task is to write a scripts that reads `urls.text`, and then GETs each one in turn.
 Make sure you use different `Test` objects for each URL, to make Grinder record their response times individually.
 
 ### How-to
@@ -166,6 +166,9 @@ You could test that the...
 - response body is larger than some minimum size (in lines, or in bytes)
 - response contains (or does not contain) some string of text
 - HTTP header contains some field
+
+By the way, the URLs in the `urls.txt` file is meant only as a starting point.
+Feel free to add or remove URLs as you like.
 
 ### How-to
 
