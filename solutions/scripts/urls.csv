@@ -1,2 +1,7 @@
-http://localhost/test/foo,status=200,text=foo,not-text=fatal error
-http://localhost/test/bar,min-size=10,status=200
+http://grinder.espenhh.com/dummy-site/                    |Frontpage          |status=200 |min-size=10
+http://grinder.espenhh.com/dummy-site/foo.php             |The FOO page       |status=200 |not-text=spam spam spam
+http://grinder.espenhh.com/dummy-site/bar.php             |The BAR page       |status=200 |text=BAR
+http://grinder.espenhh.com/dummy-site/baz.php             |The BAZ page       |status=200 |text=baz
+http://grinder.espenhh.com/dummy-site/unreliable-link.php |An unreliable link |status=200
+http://grinder.espenhh.com/dummy-site/bad-link.php        |A broken link      |status=302
+http://grinder.espenhh.com/dummy-site/404.php             |Page not found     |status=404

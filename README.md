@@ -203,8 +203,6 @@ In most cases, you will have different requirements when testing different URLs.
 Some pages should perhaps have different status codes, contain different text, or return different headers.
 Implement this by adding information about which validation checks to perform alongside the URLs in the input file.
 
-Hint: For this, the [csv file reader](http://docs.python.org/library/csv.html) could prove useful.
-
 
 ## Task 4 - Testing of a typical JSON-API (REST API)
 

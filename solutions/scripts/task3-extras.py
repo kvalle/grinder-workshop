@@ -9,9 +9,10 @@ class TestRunner:
         url_file = open(url_file_path, 'rb')
         self.tests = []
         for num, line in enumerate(url_file):
-            line = [val.strip() for val in line.split(',')]
-            url, checks = line[0], line[1:]
-            request = Test(num, url).wrap(HTTPRequest())
+            line = [val.strip() for val in line.split('|')]
+            url, description, checks = line[0], line[1], line[2:]
+            test = Test(num, description)
+            request = test.wrap(HTTPRequest())
             self.tests.append((request, url, checks))
         url_file.close()
         grinder.statistics.delayReports = 1
