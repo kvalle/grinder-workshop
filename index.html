@@ -38,7 +38,7 @@ ROOTS 2012
 
 Espen H. Halvorsen / Kjetil Valle
 
-10/05/2012
+26/04/2012
 
 ---
 
@@ -51,6 +51,7 @@ Espen H. Halvorsen / Kjetil Valle
 * Tasks
 
 ---
+
 .middle.center
 
 # Why are you here?
@@ -71,17 +72,17 @@ Espen H. Halvorsen / Kjetil Valle
 ### <span class="quote"><span class="emph">Measurement</span> is the first step that leads <br>to control and eventually to improvement. <br><br>If you can't measure something, you can't <span class="emph">understand</span> it. <br>If you can't understand it, you can't <span class="emph">control</span> it. <br>If you can't control it, you can't <span class="emph">improve</span> it.</span>
 
 ---
-# Bad performance are newsworthy
+# Bad performance is newsworthy
 
 .center[
     <img alt="VG" src="./images/vg.png"/ style="width: 50%;">
 ]
 
 ---
+
 .middle.center
 # « Anything that can go wrong, <br>will go wrong »
 What happens when the whole country and their grandmothers come knocking?
-
 
 ---
 
@@ -283,7 +284,11 @@ time for some hands-on practice
 
 ---
 
+.middle
+
 # Task 1: Measure URL request time
+
+### Objectives:
 
 1. Create a `Test` object with number and description
 2. Wrap a `HTTPRequest` with the the test object.
@@ -291,9 +296,53 @@ time for some hands-on practice
 
 For help getting started, review the [example script](https://github.com/kvalle/grinder-workshop/blob/master/example) and Grinder's [script gallery](http://grinder.sourceforge.net/g3/script-gallery.html).
 
+Read the detailed task descriptions at:  
+[https://github.com/kvalle/grinder-workshop](https://github.com/kvalle/grinder-workshop)
+
 ---
 
 # Solution 1
+
+TODO
+
+---
+
+.middle
+
+# Task 2: Testing multiple URLs
+
+Write a scripts that reads `urls.text`, and then GETs each one in turn.
+Make sure you use different `Test` objects for each URL, to make Grinder record their response times individually.
+
+### Objectives:
+
+1. Read the URLs from file.
+1. Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
+1. GET all the URLs every time the test script is run.
+
+---
+
+# Solution 2
+
+TODO
+
+---
+
+.middle
+
+# Task 3: Validating the responses
+
+### Objectives:
+
+Enhance the script from task 2 to inspect the responses, and validate them against a set of requirements.
+
+1. Capture the `HTTPResponse` object returned from the `GET` method.
+1. Validate the expected properties of the response using the [script API](http://grinder.sourceforge.net/g3/script-javadoc/HTTPClient/HTTPResponse.html).
+1. If a response does not fulfil the requirements, fail that particular test.
+
+---
+
+# Solution 3
 
 TODO
 
