@@ -220,7 +220,7 @@ Then, start writing the test. We'll give you complete freedom here, but to get y
 
 1. Start by writing a test that fetches http://grinder.espenhh.com/json.php and outputs the result to the console
 2. Now, modify the test to parse the JSON.
-3. To start simple, print out the fetched-field on the JSON
+3. To start simple, print out the `fetched`-field on the JSON
 4. Now loop through all the tweets, and print out the tweets
 5. Find the URL for each tweets profile picture, and do a GET against this URL
 
