@@ -69,7 +69,7 @@ For any question that on the interaction between Python and Java, the [Jython ho
 # Tasks
 
 The tasks are described below.
-While you could perfectly well solve them by yourself, we reccomend that you work in pairs to get the most out of the workshop.
+While you could perfectly well solve them by yourself, we recommend that you work in pairs to get the most out of the workshop.
 This way, it will also be easier for us to help everybody.
 
 The tasks start easy, by first only measuring the request time for a single URL.
@@ -231,7 +231,7 @@ Twitter: http://search.twitter.com/search.json?q=grinder (change "grinder" to wh
 
 ## Task 5 - Using Grinder's TCPProxy to automatically generate tests
 
-Sometimes, you don't want to write all your tests by hand, you just want to simulate a user clicking through some pages in a browser. Grinder has support for this; by using the [Grinder TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.html) you can record a web-browsing-session and replay it using Grinder afterward. This technique will also generate a script which you can later modify (this is something you almost certainly would want to do!).
+Sometimes, you don't want to write all your tests by hand, you just want to simulate a user clicking through some pages in a browser. Grinder has support for this; by using the [Grinder TCPProxy](http://grinder.sourceforge.net/g3/tcpproxy.html) you can record a web-browsing-session and replay it using Grinder afterwards. This technique will also generate a script which you can later modify (this is something you almost certainly would want to do!).
 
 ### How-to
 
@@ -244,3 +244,4 @@ Do the following tasks to record a simple web page:
 5. Inspect the script generated: it's located at `proxy/proxygeneratedscript.sh`
 6. Try running the script: `./startAgent.sh proxy/proxygeneratedscript.sh`
 7. Check the log, try modifying the script, experiment. You can start by removing all the sleep statements in the script. Then try it on a more complicated page. Have fun =)
+
