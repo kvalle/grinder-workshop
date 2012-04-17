@@ -352,7 +352,28 @@ Make sure you use different `Test` objects for each URL, to make Grinder record 
 
 # Task 2: Solution
 
-TODO
+    .python
+    from net.grinder.script.Grinder import grinder
+    from net.grinder.script import Test
+    from net.grinder.plugin.http import HTTPRequest
+
+    url_file_path = grinder.getProperties().getProperty('task2.urls')
+
+    class TestRunner:
+        
+        def __init__(self):
+            url_file = open(url_file_path)          # 1. reading URLs
+            self.tests = []
+            for num, url in enumerate(url_file):
+                url = url.strip()
+                test = Test(num, url)               # 2. creating tests
+                request = test.wrap(HTTPRequest())
+                self.tests.append((request, url))
+            url_file.close()
+        
+        def __call__(self):
+            for request, url in self.tests:         # 3. GETing each URL
+                request.GET(url)
 
 ---
 
@@ -370,7 +391,34 @@ Enhance the script from task 2 to inspect the responses, and validate them again
 
 # Task 3: Solution
 
-TODO
+    .python
+    # imports as before...
+    
+    class TestRunner:
+        
+        def __init__(self):
+            # setup tests as before... 
+            grinder.statistics.setDelayReports(True)
+        
+        def __call__(self):
+            for request, url in self.tests:
+                response = request.GET(url)     # 1. capturing the response
+                if not self.is_valid(response): # 2. validating the response
+                    self.fail()                 # 3. failing tests if validation fails
+                grinder.statistics.report()
+        
+        def fail(self):
+            grinder.statistics.getForLastTest().setSuccess(False) 
+        
+        def is_valid(self, response):
+            if len(response.getData()) < 10:      # expecting minimum 10 bytes
+                return False
+            if response.getStatusCode() != 200:   # expecting HTTP status 200
+                return False
+            if "epic fail" in response.getText(): # failing responses containing bad text ;)
+                return False
+            return True
+
 
 ---
 
