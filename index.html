@@ -290,8 +290,6 @@ time for some hands-on practice
 
 ---
 
-.middle
-
 # Task 1: Measure URL request time
 
 ### Objectives:
@@ -307,13 +305,37 @@ Read the detailed task descriptions at:
 
 ---
 
-# Solution 1
+# Task 1: Solution
 
-TODO
+The provided test configuration:
+
+    .no-highlight
+    grinder.script = scripts/task1.py
+
+    grinder.runs = 5
+
+    grinder.useConsole = false
+    grinder.logDirectory = log
+    grinder.jvm.arguments: -Dpython.cachedir=/tmp -Xmx1000m
+
+And the completed `task1.py`:
+
+    .python
+    from net.grinder.script.Grinder import grinder
+    from net.grinder.script import Test
+    from net.grinder.plugin.http import HTTPRequest
+
+    class TestRunner:
+        
+        def __init__(self):
+            test = Test(1, "GETing some webpage")
+            self.request = test.wrap(HTTPRequest())
+        
+        def __call__(self):
+            self.request.GET("http://grinder.espenhh.com/rocksolid.php")
+
 
 ---
-
-.middle
 
 # Task 2: Testing multiple URLs
 
@@ -328,13 +350,11 @@ Make sure you use different `Test` objects for each URL, to make Grinder record 
 
 ---
 
-# Solution 2
+# Task 2: Solution
 
 TODO
 
 ---
-
-.middle
 
 # Task 3: Validating the responses
 
@@ -348,9 +368,15 @@ Enhance the script from task 2 to inspect the responses, and validate them again
 
 ---
 
-# Solution 3
+# Task 3: Solution
 
 TODO
+
+---
+
+# Tasks 4,5 and solutions
+
+TODO: Espen
 
 ---
 
