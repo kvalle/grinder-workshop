@@ -21,8 +21,11 @@ class TestRunner:
         for request, url, checks in self.tests:
             response = request.GET(url)
             if not self.is_valid(response, checks):
-                grinder.statistics.getForLastTest().setSuccess(False)
+                self.fail()
             grinder.statistics.report()
+
+    def fail(self):
+        grinder.statistics.getForLastTest().setSuccess(False) 
             
     def is_valid(self, response, checks):
         validators = {
