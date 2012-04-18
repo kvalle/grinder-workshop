@@ -225,17 +225,18 @@ The first thing we need is a test script: `example/script.py`
     from net.grinder.script.Grinder import grinder
     from net.grinder.script import Test
 
-    def some_function():
+    def say_hello():
         thread = grinder.getThreadNumber()
-        print '> worker thread %d: hello world' % thread
+        print '> worker thread %d: hello world!' % thread
 
     class TestRunner:
         
         def __init__(self):
-            self.test = Test(1, "test description").wrap(some_function)
+            self.test = Test(1, "test description").wrap(say_hello)
 
         def __call__(self):
             self.test()
+            
 
 ---
 
@@ -246,12 +247,12 @@ Next, we need a configuration file: `example/scenario.properties`
     .no-highlight
     grinder.script = script.py
 
-    grinder.threads = 2
-    grinder.runs = 5
-    
+    grinder.processes = 1
+    grinder.threads = 5
+    grinder.runs = 2
+
     grinder.useConsole = false
     grinder.logDirectory = log
-    grinder.jvm.arguments: -Dpython.cachedir=/tmp -Xmx1000m
 
 ---
 
