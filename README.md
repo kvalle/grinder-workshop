@@ -57,6 +57,7 @@ In case we aren't immediately available to respond to these, and your pal sittin
 For information about Grinder, it's [website](http://grinder.sourceforge.net/) is a good place to start.
 For inspiration and help regarding the test scripts, the [script-gallery](http://grinder.sourceforge.net/g3/script-gallery.html) is a good place to start. It contains a number of good examples.
 There is also a [script API](http://grinder.sourceforge.net/g3/script-javadoc/index.html) with explanations of how the various classes and methods work.
+For information about the different configuration properties Grinder understands, see the [table of properties](http://grinder.sourceforge.net/g3/properties.html) in the documentation.
 
 The first place to check if you have any questions about the language: [Pythons official documentation](http://docs.python.org/index.html).
 It contains a smorgasbord of good information.
