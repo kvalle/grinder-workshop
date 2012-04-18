@@ -113,9 +113,13 @@ For more, check out the [feature page](http://grinder.sourceforge.net/g3/feature
 
 ---
 
+.middle.center
+
 # Grinder 101
 
-### Framework overview
+---
+
+# Framework overview
 
 The Grinder framework is comprised of three types of processes (or programs):
 
@@ -127,9 +131,7 @@ The Grinder framework is comprised of three types of processes (or programs):
 
 ---
 
-# Grinder 101
-
-### Framework overview
+# Framework overview
 
 .center[
     <img alt="Overview of the Grinder framework" src="./images/grinder-overview.png"/ style="width: 70%;">
@@ -137,9 +139,7 @@ The Grinder framework is comprised of three types of processes (or programs):
 
 ---
 
-# Grinder 101
-
-### Framework overview
+# Framework overview
 
 .center[
     <img alt="Overview of the Grinder framework" src="./images/grinder-overview-focus.png"/ style="width: 70%;">
@@ -147,9 +147,7 @@ The Grinder framework is comprised of three types of processes (or programs):
 
 ---
 
-# Grinder 101
-
-### Tests and test scripts
+# Tests and test scripts
 
 The tests are defined in *test scripts*, which are run by the worker threads.
 
@@ -159,9 +157,7 @@ The tests are defined in *test scripts*, which are run by the worker threads.
 
 ---
 
-# Grinder 101
-
-### Test configuration
+# Test configuration
 
 Grinder agents are configured from a `.properties` files.
 
@@ -174,9 +170,7 @@ These files can be viewed as *test scenarios*, as they contain a combination of 
 
 ---
 
-# Grinder 101
-
-### Test output
+# Test output
 
 Grinder outputs test results to file. Most important are `data_host_n.log` and `out_host_n.log`. 
 
@@ -188,9 +182,7 @@ Another file, `errors_host_n.log`, is generated whenever the test scripts crash,
 
 ---
 
-# Grinder 101
-
-### Test output
+# Test output
 
 Example excerpt from `data_host_n.log`
 
@@ -217,9 +209,15 @@ And from `out_host_n.log`
 
 ---
 
-# Grinder 101
+.middle.center
 
-### A simple example
+# A simple example
+
+### hello world à la grinder
+
+---
+
+# A simple example
 
 The first thing we need is a test script: `example/script.py`
 
@@ -228,9 +226,8 @@ The first thing we need is a test script: `example/script.py`
     from net.grinder.script import Test
 
     def some_function():
-        run = grinder.getRunNumber()
         thread = grinder.getThreadNumber()
-        print '> output #%d from worker thread %d' % (run, thread)
+        print '> worker thread %d: hello world' % thread
 
     class TestRunner:
         
@@ -242,9 +239,7 @@ The first thing we need is a test script: `example/script.py`
 
 ---
 
-# Grinder 101
-
-### A simple example
+# A simple example
 
 Next, we need a configuration file: `example/scenario.properties`
 
@@ -260,9 +255,7 @@ Next, we need a configuration file: `example/scenario.properties`
 
 ---
 
-# Grinder 101
-
-### A simple example
+# A simple example
 
 Finally, we run the test.
 
