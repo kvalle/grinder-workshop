@@ -1,4 +1,4 @@
-This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop which will be held at [Roots 2012](http://rootsconf.no/) and [Free-Test 2012](http://www.dataforeningen.no/forside.194266.no.html).
+This repo contains all the material you need to participate in the [Grinder](http://grinder.sourceforge.net) Workshop, which will be held at [Roots 2012](http://rootsconf.no/) and [Free-Test 2012](http://www.dataforeningen.no/forside.194266.no.html).
 
 **In order to be able to get started quickly, you should do the preparations described in the next section.**
 
@@ -9,6 +9,8 @@ You can get [a copy of the slides here](http://kvalle.github.com/grinder-worksho
 -----------
 
 # Preparation before the workshop
+
+**TL;DR:** `git clone git://github.com/kvalle/grinder-workshop.git; cd grinder-workshop; ./startAgent.sh example/scenario.properties
 
 To save us all some time, it would be nice if everyone could do some preparation before the workshop begins. That let's us begin working on the tasks immediately, and gives us much more time to learn and help each other.
 
