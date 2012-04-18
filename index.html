@@ -34,11 +34,11 @@
 
 ## A Simple Introduction to Web Performance Testing 
 
-ROOTS 2012
+BEKK 2012 / ROOTS 2012 / FREE TEST 2012
 
-Espen H. Halvorsen / Kjetil Valle
+Espen Herseth Halvorsen 
 
-26/04/2012
+Kjetil Valle
 
 ---
 
@@ -159,9 +159,9 @@ The tests are defined in *test scripts*, which are run by the worker threads.
 
 # Test configuration
 
-Grinder agents are configured from a `.properties` files.
+Grinder agents are configured from a `.properties` file.
 
-These files can be viewed as *test scenarios*, as they contain a combination of what to test (which script), and how hard to test (how many workers, etc).
+These files can be viewed as *test scenarios*, as they contain a combination of what to test (which script), and how hard to test (how many workers, etc.)
 
 * Defaults to `grinder.properties` unless one is specified at startup.
 * Used for configuring everything from logging to the number of worker processes/threads.
@@ -290,7 +290,7 @@ time for some hands-on practice
 
 1. Create a `Test` object with number and description
 2. Wrap a `HTTPRequest` with the the test object.
-3. Make grinder do a HTTP GET request to some URL every time the `__call__` method is invoced.
+3. Make grinder do a HTTP GET request to some URL every time the `__call__` method is invoked.
 
 For help getting started, review the [example script](https://github.com/kvalle/grinder-workshop/blob/master/example) and Grinder's [script gallery](http://grinder.sourceforge.net/g3/script-gallery.html).
 
@@ -333,13 +333,13 @@ And the completed `task1.py`:
 
 # Task 2: Testing multiple URLs
 
-Write a scripts that reads `urls.text`, and then GETs each one in turn.
+Write a script that reads `urls.text`, and then GETs each one in turn.
 Make sure you use different `Test` objects for each URL, to make Grinder record their response times individually.
 
 ### Objectives:
 
 1. Read the URLs from file.
-1. Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in the task 1.)
+1. Create a `Test` for each URL. (Remember to wrap a `HTTPRequest`, like in task 1.)
 1. GET all the URLs every time the test script is run.
 
 ---
@@ -379,7 +379,7 @@ Enhance the script from task 2 to inspect the responses, and validate them again
 
 1. Capture the `HTTPResponse` object returned from the `GET` method.
 1. Validate the expected properties of the response using the [script API](http://grinder.sourceforge.net/g3/script-javadoc/HTTPClient/HTTPResponse.html).
-1. If a response does not fulfil the requirements, fail that particular test.
+1. If a response does not fulfill the requirements, fail that particular test.
 
 ---
 
@@ -416,9 +416,91 @@ Enhance the script from task 2 to inspect the responses, and validate them again
 
 ---
 
-# Tasks 4,5 and solutions
+# Task 4: Testing of a typical JSON-API
 
-TODO: Espen
+Write a test that fetches a JSON-formatted list from a predefined URL, parses it, and uses the result to fetch additional resources.
+
+### Objectives:
+
+1. `GET` some `JSON` from an API.
+1. Use a Java library (or a python library if you feel brave) to parse it.
+1. Loop through it, and do something about each item (`GET` additional thing(s)).
+
+---
+
+# Task 4: Solution
+
+    .python
+    # imports...
+    class TestRunner:
+    def __init__(self):
+        test1 = Test(1, "GET some JSON")
+        self.request1 = test1.wrap(HTTPRequest())
+
+        test2 = Test(2, "GET profilepicture")
+        self.request2 = test2.wrap(HTTPRequest())
+    
+    def __call__(self):
+        # Fetches the initial JSON
+        response = self.request1.GET("http://grinder.espenhh.com/json.php")
+        print "JSON: " + response.text
+
+        # Parses the JSON (Using a Java library). Then prints the field "fetched"
+        jsonObject = JSONObject(response.text)
+        fetched = jsonObject.getString("fetched")
+        print "FETCHED: " + fetched
+
+        # Gets the single tweets, and loops through them
+        tweetsJsonObject = jsonObject.getJSONArray("tweets")
+        for i in range(0,tweetsJsonObject.length()):
+            singleTweet = tweetsJsonObject.getJSONObject(i)
+
+            # Print out a single tweet
+            userName = singleTweet.getString("user")
+            tweet = singleTweet.getString("tweet")
+            print "TWEET: " + userName + ": " + tweet
+
+            # Fetch the URL to the profile picture, and GET it.
+            profilePictureUri = singleTweet.getString("profile_image")
+            print "GET against profile picture uri: " + profilePictureUri
+            self.request2.GET(profilePictureUri)
+
+---
+
+# Task 5: Using Grinder's TCPProxy
+
+Now, we will look into how we can automatically generate some simple scripts by recording a session in the browser.
+
+### Objectives:
+
+1. Start Grinder's `TCPProxy`, which will give you a port on `localhost` to connect your browser through.
+1. Configure browser to use proxy
+1. Do something in the browser (`GET` a simple page)
+1. Inspect the generated script
+1. Run the generated script
+1. Modify the generated script
+
+---
+
+# Task 5: Solution
+
+The solution depends on what you did in the browser. The scripts generated would be waaaaaaay to long to show on this slide anyway...
+
+### How it looked at the command line:
+
+    .bash
+    $ ./startProxy.sh 
+
+    4/18/12 6:49:28 PM (tcpproxy): Initialising as an HTTP/HTTPS proxy with the     
+    parameters:                                                                     
+       Request filters:    HTTPRequestFilter                                        
+       Response filters:   HTTPResponseFilter                                       
+       Local address:      localhost:8001                                           
+    4/18/12 6:49:30 PM (tcpproxy): Engine initialised, listening on port 8001       
+
+    ...
+
+    4/18/12 6:50:30 PM (tcpproxy): Engine exited                               
 
 ---
 
@@ -430,8 +512,8 @@ TODO: Espen
 &nbsp;
 
 <div class="col">
-Espen Halvorsen  
-*espen.halvorsen@bekk.no*
+Espen Herseth Halvorsen  
+*espen.herseth.halvorsen@bekk.no*
 </div>
 
 <div class="col">
