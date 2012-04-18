@@ -10,7 +10,7 @@ You can get [a copy of the slides here](http://kvalle.github.com/grinder-worksho
 
 # Preparation before the workshop
 
-**TL;DR:** `git clone git://github.com/kvalle/grinder-workshop.git; cd grinder-workshop; ./startAgent.sh example/scenario.properties
+**TL;DR:** `git clone git://github.com/kvalle/grinder-workshop.git; cd grinder-workshop; ./startAgent.sh example/scenario.properties`
 
 To save us all some time, it would be nice if everyone could do some preparation before the workshop begins. That let's us begin working on the tasks immediately, and gives us much more time to learn and help each other.
 
