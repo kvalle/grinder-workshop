@@ -26,17 +26,13 @@ When you are finished with these simple steps, you can check that everything wor
     ./startAgent.sh example/scenario.properties
   
 When you run this example, Grinder will output some information.
-First there will be some information about what happens during the start-up of Grinder, and possibly a few lines with something like `*sys-package-mgr*: processing new jar`.
-Ignore this for now.
-
-Then the example-test will output some information while running.
+First there will be some information about what happens during the start-up of Grinder, and then some lines of 'hello world' while running the test script.
 This should look something like the following:
 
-    > output #0 from worker thread 1
-    > output #0 from worker thread 0
-    > output #1 from worker thread 0
-    > output #1 from worker thread 1
-    > output #2 from worker thread 0
+    > worker thread 2: hello world!
+    > worker thread 0: hello world!
+    > worker thread 1: hello world!
+    > worker thread 3: hello world!
     ...
 
 When the test has finished running, you can also check that everything is okay by inspection the results that have been stored in the newly created directory `grinder-workshop/log`.
