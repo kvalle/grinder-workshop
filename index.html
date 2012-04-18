@@ -34,11 +34,11 @@
 
 ## A Simple Introduction to Web Performance Testing 
 
-ROOTS 2012
+BEKK 2012 / ROOTS 2012 / FREE TEST 2012
 
-Espen H. Halvorsen / Kjetil Valle
+Espen Herseth Halvorsen 
 
-26/04/2012
+Kjetil Valle
 
 ---
 
@@ -422,9 +422,77 @@ Enhance the script from task 2 to inspect the responses, and validate them again
 
 ---
 
-# Tasks 4,5 and solutions
+# Task 4: Testing of a typical JSON-API
 
-TODO: Espen
+Write a test that fetches a JSON-formatted list from a predefined URL, parses it, and uses the result to fetch additional resources.
+
+### Objectives:
+
+1. `GET` some `JSON` from an API.
+1. Use a Java library (or a python library if you feel brave) to parse it.
+1. Loop through it, and do something about each item (`GET` additional thing(s)).
+
+---
+
+# Task 4: Solution
+
+    .python
+    # imports...
+    class TestRunner:
+    def __init__(self):
+        test1 = Test(1, "GET some JSON")
+        self.request1 = test1.wrap(HTTPRequest())
+
+        test2 = Test(2, "GET profilepicture")
+        self.request2 = test2.wrap(HTTPRequest())
+    
+    def __call__(self):
+        # Fetches the initial JSON
+        response = self.request1.GET("http://grinder.espenhh.com/json.php")
+        print "JSON: " + response.text
+
+        # Parses the JSON (Using a Java library). Then prints the field "fetched"
+        jsonObject = JSONObject(response.text)
+        fetched = jsonObject.getString("fetched")
+        print "FETCHED: " + fetched
+
+        # Gets the single tweets, and loops through them
+        tweetsJsonObject = jsonObject.getJSONArray("tweets")
+        for i in range(0,tweetsJsonObject.length()):
+            singleTweet = tweetsJsonObject.getJSONObject(i)
+
+            # Print out a single tweet
+            userName = singleTweet.getString("user")
+            tweet = singleTweet.getString("tweet")
+            print "TWEET: " + userName + ": " + tweet
+
+            # Fetch the URL to the profile picture, and GET it.
+            profilePictureUri = singleTweet.getString("profile_image")
+            print "GET against profile picture uri: " + profilePictureUri
+            self.request2.GET(profilePictureUri)
+
+---
+
+# Task 5: Using Grinder's TCPProxy
+
+Now, we will look into how we can automatically generate some simple scripts by recording a session in the browser.
+
+### Objectives:
+
+1. Start Grinder's `TCPProxy`, which will give you a port on `localhost` to connect your browser through.
+1. Configure browser to use proxy
+1. Do something in the browser (`GET`a simple page)
+1. Inspect the generated script
+1. Run the generated script
+1. Modify the generated script
+
+---
+
+# Task 5: Solution
+
+The solution depends on what you did in the browser. 
+
+The scripts generated would be waaaaaaay to long to show on this slide anyway...
 
 ---
 
