@@ -88,7 +88,7 @@ Here we have only provided the shell, which you must complete to make the test d
 
 To run the test, use the `startAgent` script as follows.
 
-    ./startAgent.sh tests/1.properties
+    ./startAgent.sh tasks/1.properties
    
 (If you are doing this on Windows, substitute `.bat` for `.sh` and use `\` instead of `/`.)
 
