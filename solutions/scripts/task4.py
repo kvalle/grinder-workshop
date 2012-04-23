@@ -15,7 +15,7 @@ class TestRunner:
     def __call__(self):
     	# Fetches the initial JSON
         response = self.request1.GET("http://grinder.espenhh.com/json.php")
-        print "JSON: " + response.text
+        print "JSON: " + response.getText()
 
         # Parses the JSON (Using a Java library). Then prints the field "fetched"
         jsonObject = JSONObject(response.text)

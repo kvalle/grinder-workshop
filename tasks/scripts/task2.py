@@ -8,7 +8,12 @@ url_file_path = grinder.getProperties().getProperty('task2.urls')
 class TestRunner:
     
     def __init__(self):
-        pass # Read the file, and create tests for each URL
+        pass
+        # TODO: 
+        # 1. Read the file (tip: the `open()` function might come in handy).
+        # 2. Then, create test objects for each URL (tip: you can iterate over the 
+        # file object as if it was a list of lines).
     
     def __call__(self):
-        pass # Make a GET request for each URL/test
+        pass 
+        # 3. Make GET requests for each of the URLs
