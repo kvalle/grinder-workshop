@@ -2,6 +2,8 @@ This repo contains all the material you need to participate in the [Grinder](htt
 
 **In order to be able to get started quickly, you should do the preparations described in the next section.**
 
+You can get [a copy of the slides here](http://kvalle.github.com/grinder-workshop/).
+
 **For windows-users:** we'll refer to bash-scripts throughout this workshop (`script.sh`), but you'll find corresponding BAT-scripts for windows (`script.bat`) that you can use (if you are not using Cygwin).
 
 -----------
