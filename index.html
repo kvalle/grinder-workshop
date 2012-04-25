@@ -62,11 +62,6 @@ Kjetil Valle
 – Jeff Athwood
 
 ---
-.middle.center
-# « Slow web pages sucks! »
-– The internet
-
----
 
 .middle.center
 ### <span class="quote"><span class="emph">Measurement</span> is the first step that leads <br>to control and eventually to improvement. <br><br>If you can't measure something, you can't <span class="emph">understand</span> it. <br>If you can't understand it, you can't <span class="emph">control</span> it. <br>If you can't control it, you can't <span class="emph">improve</span> it.</span>
@@ -113,6 +108,20 @@ Main features:
 - Written in Java, but using Jython and Clojure for test scripting.
 - Supports distributed testing using many load injector machines. 
 - Freely available under a BSD-style open-source license.
+
+---
+
+# Why Grinder?
+
+... compared to LoadRunner, JMeter, etc.
+
+- Tests written i code, not created in a GUI
+- Few requirements - all you need is Java
+- Supersimple to deploy
+- Free and open source
+- It Works™
+
+(if you are not a coder, Grinder is probably not the best tool for you...)
 
 ---
 
@@ -284,7 +293,7 @@ Finally, we run the test.
     .bash
     java -cp lib/grinder.jar net.grinder.Grinder example/scenario.properties
     
-To simplify things we can also use the provided script.
+To simplify things we have provided a simple script that does the same:
 
     .bash
     ./startAgent.sh example/scenario.properties
